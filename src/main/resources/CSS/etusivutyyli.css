@@ -1,8 +1,7 @@
-
-/* leveys */
 body {
     margin: auto;
     width: 80%;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 /* Navigoinnin taustaväri */
@@ -34,7 +33,17 @@ body {
 }
 
 /* tervehdysteksti */
-.tervehdys {text-align: center;
+.tervehdys {
+    text-align: center;
     padding: 14px 16px;
     text-decoration: none;
-    font-size: 25px;}
+    font-size: 25px;
+}
+
+/* etsi-kentän muotoilut */
+.etsi {
+    width: 20%;
+    float: right;
+    height: 17px;
+    font-family: Arial, Helvetica, sans-serif;
+}

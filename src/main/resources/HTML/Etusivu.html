@@ -29,7 +29,9 @@
         </div>
 
         <div class="container" style="background-color:#f1f1f1">
-            <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Peruuta</button>
+            <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">
+                Peruuta
+            </button>
             <span class="psw">Unohditko <a href="#">salasanan?</a></span>
         </div>
     </form>
@@ -41,8 +43,11 @@
     <a href="Leffalopinat.html">Leffalöpinät</a>
     <a href="Autohullut.html">Autohullut</a>
     <a href="Golfjuorut.html">Golfjuorut</a>
+    <form class="etsi">
+        <input type="text" placeholder="Search.." name="search">
+        <button type="submit"></button>
+    </form>
 </div>
-
 
 <img id="kuva" src="../KUVAT/lentavasika.jpg" width="100%"/></body>
 
@@ -53,7 +58,7 @@
     var modal = document.getElementById('id01');
 
     // Sulje modaali mistä vaan, kunhan klikkaa lomakkeen ulkopuolelta
-    window.onclick = function(event) {
+    window.onclick = function (event) {
         if (event.target == modal) {
             modal.style.display = "none";
         }
