@@ -7,10 +7,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class Kontrolleri {
 
-    @RequestMapping("/")
+    @RequestMapping("/Etusivu")
     public String indeksi(Model model) {
         model.addAttribute("otsikko", "Etusivu");
         return "Etusivu";
     }
+
+
 
 }

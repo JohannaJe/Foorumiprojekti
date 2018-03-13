@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8"  xmlns:th="http://www.thymeleaf.org">
     <title>Lentävä sika</title>
-    <link rel="stylesheet" href="../CSS/etusivutyyli.css">
-    <link rel="stylesheet" href="../CSS/kirjautumistyyli.css">
+    <link rel="stylesheet" href="../static/etusivutyyli.css">
+    <link rel="stylesheet" href="../static/kirjautumistyyli.css">
+
 </head>
 <body>
 
@@ -15,7 +16,7 @@
     <form class="modal-content animate" action="/action_page.php">
         <div class="imgcontainer">
             <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
-            <img src="../KUVAT/AVATAR.png" alt="Avatar" class="avatar">
+            <img src="../static/AVATAR.png" alt="Avatar" class="avatar">
         </div>
 
         <div class="container">
@@ -49,7 +50,7 @@
     </form>
 </div>
 
-<img id="kuva" src="../KUVAT/lentavasika.jpg" width="100%"/></body>
+<img id="kuva" src="../static/lentavasika.jpg" width="100%"/></body>
 
 <p class="tervehdys">Tervetuloa turisemaan!</p>
 
