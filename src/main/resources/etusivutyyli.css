@@ -1,0 +1,27 @@
+/* Navigoinnin taustaväri */
+.topnav {
+    background-color: #565656;
+    overflow: hidden;
+}
+
+/* Linkkien tyylit*/
+.topnav a {
+    float: left;
+    color: #E0FFFF;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+/* Linkkien värit */
+.topnav a:hover {
+    background-color: #E0FFFF;
+    color: black;
+}
+
+/* Nykyinen linkki */
+.topnav a.active {
+    background-color: #3CB371;
+    color: white;
+}
