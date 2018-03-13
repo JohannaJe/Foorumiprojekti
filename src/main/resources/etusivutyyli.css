@@ -1,3 +1,10 @@
+
+/* leveys */
+body {
+    margin: auto;
+    width: 60%;
+}
+
 /* Navigoinnin taustaväri */
 .topnav {
     background-color: #565656;
@@ -25,3 +32,9 @@
     background-color: #3CB371;
     color: white;
 }
+
+/* tervehdysteksti */
+.tervehdys {text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 25px;}
