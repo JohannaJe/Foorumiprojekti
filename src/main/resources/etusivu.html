@@ -4,8 +4,36 @@
     <meta charset="UTF-8">
     <title>Lentävä sika</title>
     <link rel="stylesheet" href="etusivutyyli.css">
+    <link rel="stylesheet" href="kirjautumistyyli.css">
 </head>
 <body>
+
+<button class="ekanappi" onclick="document.getElementById('id01').style.display='block'">Kirjaudu</button>
+
+<div id="id01" class="modal">
+
+    <form class="modal-content animate" action="/action_page.php">
+        <div class="imgcontainer">
+            <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+            <img src="AVATAR.png" alt="Avatar" class="avatar">
+        </div>
+
+        <div class="container">
+            <label><b>Käyttäjänimi</b></label>
+            <input type="text" placeholder="Syötä käyttäjänimi" name="uname" required>
+
+            <label><b>Salasana</b></label>
+            <input type="password" placeholder="Syötä salasana" name="psw" required>
+
+            <button type="submit">Kirjaudu</button>
+        </div>
+
+        <div class="container" style="background-color:#f1f1f1">
+            <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Peruuta</button>
+            <span class="psw">Unohditko <a href="#">salasanan?</a></span>
+        </div>
+    </form>
+</div>
 
 <div class="topnav">
     <a class="active" href="#Etusivu">Home</a>
@@ -19,5 +47,17 @@
 <img id="kuva" src="lentavasika.jpg" width="100%"/></body>
 
 <p class="tervehdys">Tervetuloa turisemaan!</p>
+
+<script>
+    // Aktivoi modaali
+    var modal = document.getElementById('id01');
+
+    // Sulje modaali mistä vaan, kunhan klikkaa lomakkeen ulkopuolelta
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+</script>
 
 </html>
