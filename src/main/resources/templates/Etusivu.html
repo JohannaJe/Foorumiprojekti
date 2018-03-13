@@ -16,7 +16,7 @@
     <form class="modal-content animate" action="/action_page.php">
         <div class="imgcontainer">
             <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
-            <img src="../static/AVATAR.png" alt="Avatar" class="avatar">
+            <img th:src="@{AVATAR.png}" class="avatar">
         </div>
 
         <div class="container">
@@ -39,11 +39,11 @@
 </div>
 
 <div class="topnav">
-    <a class="active" href="Etusivu.html">Home</a>
-    <a href="Kalajutut.html">Kalajutut</a>
-    <a href="Leffalopinat.html">Leffalöpinät</a>
-    <a href="Autohullut.html">Autohullut</a>
-    <a href="Golfjuorut.html">Golfjuorut</a>
+    <a class="active" href="etusivu">Home</a>
+    <a href="kalajutut">Kalajutut</a>
+    <a href="leffalopinat">Leffalöpinät</a>
+    <a href="autohullut">Autohullut</a>
+    <a href="golfjuorut">Golfjuorut</a>
     <form class="etsi">
         <input type="text" placeholder="Search.." name="search">
         <button type="submit"></button>
@@ -65,5 +65,5 @@
         }
     }
 </script>
-
+</body>
 </html>
