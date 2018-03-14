@@ -13,7 +13,7 @@ public class Golf {
     private String kayttajatunnus;
     private String aihe;
     private String kommentti;
-    private Kayttaja kayttaja;
+//    private Kayttaja kayttaja;
 //    @ManyToOne(cascade = {CascadeType.PERSIST/*, CascadeType.MERGE, CascadeType.REMOVE*/})
 //    @JoinColumn
 //    private Kayttaja kayttaja;
@@ -58,10 +58,6 @@ public class Golf {
 
     public void setKommentti(String kommentti) {
         this.kommentti = kommentti;
-    }
-
-    public void setKayttaja(Kayttaja kayttaja) {
-        this.kayttaja = kayttaja;
     }
 }
 
