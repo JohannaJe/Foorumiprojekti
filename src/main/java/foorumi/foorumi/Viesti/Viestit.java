@@ -42,8 +42,8 @@ public class Viestit {
 
     public void muokkaa(Viesti viesti) {
         Viesti vanha =  etsi(viesti.getId());
-        vanha.setTeksti(viesti.getTeksti());*/
-    }
+        vanha.setTeksti(viesti.getTeksti());
+    }*/
 
     @Override
     public String toString() {
