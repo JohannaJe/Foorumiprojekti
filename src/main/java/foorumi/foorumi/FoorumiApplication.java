@@ -1,9 +1,6 @@
 package foorumi.foorumi;
 
-import foorumi.foorumi.Golf.Golf;
-import foorumi.foorumi.Golf.GolfRepo;
-import foorumi.foorumi.Kayttaja.Kayttaja;
-import foorumi.foorumi.Kayttaja.KayttajaRepo;
+
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -15,6 +12,11 @@ public class FoorumiApplication {
 	public static void main(String[] args)	 {
 		SpringApplication.run(FoorumiApplication.class, args);}}
 
+//	@Bean
+//	CommandLineRunner demo ()
+
+
+
 
 //	@Bean
 //	CommandLineRunner sd (GolfRepo golfry, KayttajaRepo kayttajary) {
@@ -23,7 +25,7 @@ public class FoorumiApplication {
 //			kayttajary.deleteAll();
 //		};
 //	}
-//
+
 //	protected void luontiYksittäin(GolfRepo golfry, KayttajaRepo kayttajary) {
 //		Golf o = new Golf("LentäväLammas", "kisa", "maaa maa mammaamaa");
 //		Kayttaja k = new Kayttaja ("Lentävälammas", "lammas", "maaa maa ");
