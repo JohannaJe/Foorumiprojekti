@@ -13,6 +13,7 @@ public class Aihe {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int koodi;
+    private String alue;
 
     @OneToMany(mappedBy = "aihe")
     @JsonIgnore
@@ -35,5 +36,13 @@ public class Aihe {
 
     public void setKoodi(int koodi) {
         this.koodi = koodi;
+    }
+
+    public String getAlue() {
+        return alue;
+    }
+
+    public void setAlue(String alue) {
+        this.alue = alue;
     }
 }
