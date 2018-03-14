@@ -15,9 +15,10 @@ import java.util.ArrayList;
 public class Kontrolleri {
 
     private Viestirepo vr;
+
     private Aiherepo ar;
 
-    public Kontrolleri(@Autowired Aiherepo ar, @Autowired Viestirepo vr) {
+    public Kontrolleri(@Autowired Viestirepo vr, @Autowired Aiherepo ar) {
         this.vr = vr;
         this.ar = ar;
     }
@@ -79,15 +80,28 @@ public class Kontrolleri {
         return "muokkaus";
     }
 
-    @PostMapping("/muokattu")
+    /*@PostMapping("/muokattu")
     public String tallennaMuokattu(Viesti viesti, Model model) {
         viestit.muokkaa(viesti);
         return "Etusivu";
-    }
+    }*/
 
-    @GetMapping("/poista")
+    /*@GetMapping("/poista")
     public String poistaViesti(@RequestParam(name = "id") int id) {
         viestit.poista(id);
+        return "Etusivu";
+    }*/
+
+    @DeleteMapping("/poista/{id}")
+    public String poistaViesti(@PathVariable(name = "id") int id) {
+        vr.deleteById(id);
+        return "Etusivu";
+    }
+
+    @PutMapping("/muokkaa/{id}")
+    public String muokkaaViestia(@PathVariable(name = "id") int id, @RequestBody Viesti viesti) {
+        viesti.setId(id);
+        vr.save(viesti);
         return "Etusivu";
     }
 

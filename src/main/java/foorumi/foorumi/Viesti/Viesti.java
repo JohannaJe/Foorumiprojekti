@@ -4,27 +4,26 @@ import foorumi.foorumi.Aihe.Aihe;
 
 import javax.persistence.*;
 
+@Entity
 public class Viesti {
 
     private String teksti;
     private String kayttaja;
     @Id
     @GeneratedValue
-    static int id = 1;
+    public int id;
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "aihe")
     public Aihe aihe;
 
     public Viesti(){
-        id++;
     }
 
 
     public Viesti(String teksti, String kayttaja) {
         this.teksti = teksti;
         this.kayttaja = kayttaja;
-        id++;
     }
 
     public String getTeksti() {
