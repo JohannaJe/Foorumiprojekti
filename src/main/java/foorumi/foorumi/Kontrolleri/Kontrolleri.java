@@ -63,7 +63,7 @@ public class Kontrolleri {
     public String muokkaa(@RequestParam(name = "id") int id, Model model) {
         Viesti etsitty = viesti.etsi(id);
         if (etsitty == null)
-            return "redirect:etusivu";
+            return "redirect:Etusivu";
         model.addAttribute("viesti", etsitty);
         return "muokkaus";
     }
