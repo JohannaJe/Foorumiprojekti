@@ -12,6 +12,7 @@ public class Viesti {
     @Id
     @GeneratedValue
     public Integer id;
+    private String alue;
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "aihe")
@@ -62,6 +63,16 @@ public class Viesti {
     public void setAihe(Aihe aihe) {
         this.aihe = aihe;
     }
+
+    public String getAlue() {
+        return alue;
+    }
+
+    public void setAlue(String alue) {
+        this.alue = alue;
+    }
+
+
 }
 
 

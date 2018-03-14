@@ -51,7 +51,7 @@ public class Kontrolleri {
         Viesti uusi = new Viesti();
         uusi.setTeksti(viesti.getTeksti());
         uusi.setKayttaja(viesti.getKayttaja());
-        uusi.setAihe(new Aihe("Autohullut"));
+        uusi.setAlue("Autohullut");
         System.out.println(uusi);
         vr.save(uusi);
         System.out.println("TOIMIIKO?");

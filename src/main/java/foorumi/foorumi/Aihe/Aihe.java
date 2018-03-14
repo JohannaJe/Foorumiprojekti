@@ -13,7 +13,6 @@ public class Aihe {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int koodi;
-    private String alue;
 
     @OneToMany(mappedBy = "aihe")
     @JsonIgnore
@@ -22,9 +21,6 @@ public class Aihe {
     public Aihe() {
     }
 
-    public Aihe(String alue) {
-        this.alue = alue;
-    }
 
     public String getOtsikko() {
         return otsikko;
@@ -42,16 +38,4 @@ public class Aihe {
         this.koodi = koodi;
     }
 
-    public String getAlue() {
-        return alue;
-    }
-
-    public void setAlue(String alue) {
-        this.alue = alue;
-    }
-
-    @Override
-    public String toString() {
-        return alue;
-    }
 }
