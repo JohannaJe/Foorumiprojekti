@@ -56,7 +56,13 @@ public class Viesti {
         return teksti + ", " + kayttaja + ".";
     }
 
+    public Aihe getAihe() {
+        return aihe;
+    }
 
+    public void setAihe(Aihe aihe) {
+        this.aihe = aihe;
+    }
 }
 
 
