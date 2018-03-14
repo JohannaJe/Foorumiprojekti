@@ -34,7 +34,7 @@ public class Kontrolleri {
 
     @PostMapping("/autohullut")
     public String lomakeKasittelija(@ModelAttribute Viesti viesti, Model model) {
-        viestit.lisaaListalle(viesti);
+        viestit.lisaa(viesti);
         model.addAttribute("viestit", viestit.getViestit());
         return "Autohullut";
     }
@@ -60,16 +60,24 @@ public class Kontrolleri {
 
 
     @GetMapping("/muokkaa")
-    public String muokkaa(@RequestParam(name = "id") int id, Model model) {
-        Viesti etsitty = viesti.etsi(id);
+    public String muokkaaViestia(@RequestParam(name = "id") int id, Model model) {
+        Viesti etsitty = viestit.etsi(id);
         if (etsitty == null)
-            return "redirect:Etusivu";
+            return "Etusivu";
         model.addAttribute("viesti", etsitty);
         return "muokkaus";
     }
 
     @PostMapping("/muokattu")
     public String tallennaMuokattu(Viesti viesti, Model model) {
-        viesti.muokkaa(viesti);
+        viestit.muokkaa(viesti);
         return "Etusivu";
-}}
+    }
+
+    @GetMapping("/poista")
+    public String poistaViesti(@RequestParam(name = "id") int id) {
+        viestit.poista(id);
+        return "Etusivu";
+    }
+
+}

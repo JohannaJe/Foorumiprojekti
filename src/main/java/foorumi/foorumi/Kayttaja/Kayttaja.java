@@ -1,8 +1,12 @@
 package foorumi.foorumi.Kayttaja;
 
+import foorumi.foorumi.Golf.Golf;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import java.util.List;
 
 @Entity
 public class Kayttaja {
@@ -12,6 +16,8 @@ public class Kayttaja {
     private String kayttajatunnus;
     private String salasana;
     private String info;
+//    @OneToMany(mappedBy = "kayttaja")
+//    private List<Golf> golf;
 
     public Kayttaja() {
     }

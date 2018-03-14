@@ -1,25 +1,29 @@
 package foorumi.foorumi.Golf;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import foorumi.foorumi.Kayttaja.Kayttaja;
+
+import javax.persistence.*;
 
 @Entity
 public class Golf {
 
-    @Id @GeneratedValue
+    @Id
+    @GeneratedValue
     private int id;
-    private String kayttaja;
+    private String kayttajatunnus;
     private String aihe;
     private String kommentti;
+    private Kayttaja kayttaja;
+//    @ManyToOne(cascade = {CascadeType.PERSIST/*, CascadeType.MERGE, CascadeType.REMOVE*/})
+//    @JoinColumn
+//    private Kayttaja kayttaja;
 
 
     public Golf() {
     }
 
-    public Golf (int id, String kayttaja, String aihe, String kommentti) {
-        this.id = id;
-        this.kayttaja = kayttaja;
+    public Golf(String kayttajatunnus, String aihe, String kommentti) {
+        this.kayttajatunnus = kayttajatunnus;
         this.aihe = aihe;
         this.kommentti = kommentti;
     }
@@ -32,12 +36,12 @@ public class Golf {
         this.id = id;
     }
 
-    public String getKayttaja() {
-        return kayttaja;
+    public String getKayttajatunnus() {
+        return kayttajatunnus;
     }
 
-    public void setKayttaja(String kayttaja) {
-        this.kayttaja = kayttaja;
+    public void setKayttajatunnus(String kayttajatunnus) {
+        this.kayttajatunnus = kayttajatunnus;
     }
 
     public String getAihe() {
@@ -56,6 +60,9 @@ public class Golf {
         this.kommentti = kommentti;
     }
 
+    public void setKayttaja(Kayttaja kayttaja) {
+        this.kayttaja = kayttaja;
+    }
 }
 
 
