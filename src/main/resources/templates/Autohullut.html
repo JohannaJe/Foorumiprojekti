@@ -31,5 +31,11 @@
     <!--<a href="/muuntelulomake">JOS TÄÄ EI OO NIIN SIISTIÄ, NIIN ALETAAN MUOKKAAMAAN!</a>-->
 </div>
 
+<table>
+    <tr th:each="Aihe: ${aihe}">
+        <td id="aihe" th:text="${aihe.otsikko}"></td>
+    </tr>
+</table>
+
 </body>
 </html>
