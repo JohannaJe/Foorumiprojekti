@@ -15,26 +15,26 @@ public class FoorumiApplication {
 		SpringApplication.run(FoorumiApplication.class, args);}
 
 
-	@Bean
-	CommandLineRunner (GolfRepo golfry, KayttajaRepo kayttajary) {
-		return (args) -> {
-			golfry.deleteAll();
-			kayttajary.deleteAll();
+//	@Bean
+//	CommandLineRunner (GolfRepo golfry, KayttajaRepo kayttajary) {
+//		return (args) -> {
+//			golfry.deleteAll();
+//			kayttajary.deleteAll();
+//
+////			luontiJoukolla(golfry);
+//		};
+//	}
 
-//			luontiJoukolla(golfry);
-		};
-	}
-
-	protected void luontiYksittäin(GolfRepo golfry, KayttajaRepo kayttajary) {
-		Golf o = new Golf(1, "LentäväLammas", "kisa", "maaa maa mammaamaa");
-		Kayttaja k = new Kayttaja ("Lentävälammas", "lammas", "maaa maa ");
-		k = kayttajary.save(k);
-		o.setKayttaja(k);
-		golfry.save(o);
-		o = new Golf(2, "PutoavaPossu", "kisa", "Lallaaa lllaaaa");
-		o.setKayttaja(o);
-		golfry.save(o);
-	}
+//	protected void luontiYksittäin(GolfRepo golfry, KayttajaRepo kayttajary) {
+//		Golf o = new Golf(1, "LentäväLammas", "kisa", "maaa maa mammaamaa");
+//		Kayttaja k = new Kayttaja ("Lentävälammas", "lammas", "maaa maa ");
+//		k = kayttajary.save(k);
+//		o.setKayttaja(k);
+//		golfry.save(o);
+//		o = new Golf(2, "PutoavaPossu", "kisa", "Lallaaa lllaaaa");
+//		o.setKayttaja(o);
+//		golfry.save(o);
+//	}
 
 //	private void luontiJoukolla(GolfRepo golfRepo) {
 //		List<Golf> golffareita = new ArrayList<>();
