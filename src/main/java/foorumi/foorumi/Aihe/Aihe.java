@@ -19,4 +19,20 @@ public class Aihe {
     @OneToMany(mappedBy = "aihe")
     @JsonIgnore
     public List<Viesti> viestit;
+
+    public String getOtsikko() {
+        return otsikko;
+    }
+
+    public void setOtsikko(String otsikko) {
+        this.otsikko = otsikko;
+    }
+
+    public int getKoodi() {
+        return koodi;
+    }
+
+    public void setKoodi(int koodi) {
+        this.koodi = koodi;
+    }
 }

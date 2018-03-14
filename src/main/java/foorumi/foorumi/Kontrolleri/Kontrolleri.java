@@ -43,11 +43,11 @@ public class Kontrolleri {
         return "lisaaviesti";
     }
 
-    @PostMapping("/autohullut")
-    public String lomakeKasittelija(@ModelAttribute Viesti viesti, Model model) {
-        viestit.lisaa(viesti);
-        model.addAttribute("viestit", viestit.getViestit());
-        return "Autohullut";
+    @PostMapping("/viestisivu")
+    public String lomakeKasittelija(@ModelAttribute Viesti viesti,@RequestParam("id") int id) {
+        viesti.setAihe(ar.findById(id).get());
+        vr.save(viesti);
+        return "redirect:/viestisivu"+"?id="+id;
     }
 
 //    @RequestMapping("/kalajutut")
