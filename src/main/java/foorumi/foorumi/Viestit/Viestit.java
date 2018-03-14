@@ -47,9 +47,7 @@ public class Viestit {
 
     @Override
     public String toString() {
-        return "Sanonnat{" +
-                "sanonnat=" + viestit +
-                '}';
+        return "viestit";
     }
 
     public List<Viesti> getViestit() {
