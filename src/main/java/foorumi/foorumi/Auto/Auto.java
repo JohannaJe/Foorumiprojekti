@@ -1,24 +1,23 @@
-package foorumi.foorumi;
+package foorumi.foorumi.Auto;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+
 @Entity
-public class Kala {
+public class Auto {
 
-
-    @Id
-    @GeneratedValue
+    @Id @GeneratedValue
     private int id;
     private String kayttaja;
     private String aihe;
     private String kommentti;
 
 
-    public Kala() {
+    public Auto() {
     }
 
-    public Kala (int id, String kayttaja, String aihe, String kommentti) {
+    public Auto(int id, String kayttaja, String aihe, String kommentti) {
         this.id = id;
         this.kayttaja = kayttaja;
         this.aihe = aihe;
@@ -58,5 +57,3 @@ public class Kala {
     }
 
 }
-
-

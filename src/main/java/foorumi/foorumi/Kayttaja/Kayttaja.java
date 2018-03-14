@@ -1,4 +1,4 @@
-package foorumi.foorumi;
+package foorumi.foorumi.Kayttaja;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

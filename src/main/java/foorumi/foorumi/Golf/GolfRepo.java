@@ -1,4 +1,4 @@
-package foorumi.foorumi;
+package foorumi.foorumi.Golf;
 
 import org.springframework.data.repository.CrudRepository;
 

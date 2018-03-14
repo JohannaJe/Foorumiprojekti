@@ -1,18 +1,29 @@
-package foorumi.foorumi;
-
-import javax.persistence.Id;
+package foorumi.foorumi.Kala;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-
+import javax.persistence.Id;
 @Entity
+public class Kala {
 
-public class Elokuva {
-    @Id @GeneratedValue
+
+    @Id
+    @GeneratedValue
     private int id;
     private String kayttaja;
     private String aihe;
     private String kommentti;
+
+
+    public Kala() {
+    }
+
+    public Kala (int id, String kayttaja, String aihe, String kommentti) {
+        this.id = id;
+        this.kayttaja = kayttaja;
+        this.aihe = aihe;
+        this.kommentti = kommentti;
+    }
 
     public int getId() {
         return id;
@@ -46,14 +57,6 @@ public class Elokuva {
         this.kommentti = kommentti;
     }
 
-    public Elokuva(String kayttaja, String aihe, String kommentti) {
-        this.kayttaja = kayttaja;
-        this.aihe = aihe;
-        this.kommentti = kommentti;
-
-    }
-
-    public Elokuva() {
-    }
 }
+
 

@@ -1,4 +1,4 @@
-package foorumi.foorumi;
+package foorumi.foorumi.Elokuva;
 
 import org.springframework.data.repository.CrudRepository;
 
