@@ -51,34 +51,34 @@ public class Kontrolleri {
         return "redirect:/viestisivu"+"?id="+id;
     }
 
-//    @RequestMapping("/kalajutut")
-//    public String Kalajutut(Model model) {
-//        model.addAttribute("otsikko", "Kalajutut");
-//        return "Kalajutut";
-//    }
-//
-//    @RequestMapping("/leffalopinat")
-//    public String Leffalopinat(Model model) {
-//        model.addAttribute("otsikko", "Leffalopinat");
-//        return "Leffalopinat";
-//    }
-//
-//    @RequestMapping("/golfjuorut")
-//    public String Golfjuorut(Model model) {
-//        model.addAttribute("otsikko", "Golfjuorut");
-//        return "Golfjuorut";
-//    }
+    @RequestMapping("/kalajutut")
+    public String Kalajutut(Model model) {
+        model.addAttribute("otsikko", "Kalajutut");
+        return "Kalajutut";
+    }
+
+    @RequestMapping("/leffalopinat")
+    public String Leffalopinat(Model model) {
+        model.addAttribute("otsikko", "Leffalopinat");
+        return "Leffalopinat";
+    }
+
+    @RequestMapping("/golfjuorut")
+    public String Golfjuorut(Model model) {
+        model.addAttribute("otsikko", "Golfjuorut");
+        return "Golfjuorut";
+    }
 
 
 
-    @GetMapping("/muokkaa")
+   /* @GetMapping("/muokkaa")
     public String muokkaaViestia(@RequestParam(name = "id") int id, Model model) {
         Viesti etsitty = viestit.etsi(id);
         if (etsitty == null)
             return "Etusivu";
         model.addAttribute("viesti", etsitty);
         return "muokkaus";
-    }
+    }*/
 
     /*@PostMapping("/muokattu")
     public String tallennaMuokattu(Viesti viesti, Model model) {

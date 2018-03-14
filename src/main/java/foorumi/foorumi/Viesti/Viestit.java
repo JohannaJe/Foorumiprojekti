@@ -19,7 +19,7 @@ public class Viestit {
         return viestit;
     }
 
-    public void lisaa(Viesti viesti) {
+   /* public void lisaa(Viesti viesti) {
         viesti.setId(viesti.getId());
         viestit.add(viesti);}
 
@@ -43,7 +43,7 @@ public class Viestit {
     public void muokkaa(Viesti viesti) {
         Viesti vanha =  etsi(viesti.getId());
         vanha.setTeksti(viesti.getTeksti());
-    }
+    }*/
 
     @Override
     public String toString() {
