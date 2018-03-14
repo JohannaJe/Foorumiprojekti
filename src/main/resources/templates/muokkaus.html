@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Muokkaus</title>
+</head>
+<body>
+<div>
+    <h1 th:text="${otsikko}?:'Muokkaa'"></h1>
+    <form action="#" th:action="@{/muokattu}"
+          th:object="${viesti}" method="post">
+        <div>
+            <label for="teksti">Teksti:</label>
+            <div>
+                <textarea th:field="*{teksti}" id="teksti" th:required="required" th:text="*{teksti}"></textarea>
+            </div>
+        </div>
+        <div>
+            <div><input type="submit" value="Hyväksy" /></div>
+            <div><a th:href="'/poista?id='+${viesti.id}"><input type="button" value="Poista" /></a></div>
+            <div><button type="button" id="peruuta"  th:text="'Peruuta'" /></div>
+        </div>
+        <input type="hidden" th:field="*{id}"/>
+    </form>
+
+</div>
+
+<script>
+    $(function() {
+        $("#peruuta").click(function() {
+            window.location.href = "/etusivu";
+        });
+    });
+</script>
+</body>
+</html>
