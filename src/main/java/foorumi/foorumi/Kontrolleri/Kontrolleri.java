@@ -2,6 +2,8 @@ package foorumi.foorumi.Kontrolleri;
 
 import foorumi.foorumi.Viesti.Viesti;
 import foorumi.foorumi.Viestit.Viestit;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -13,6 +15,11 @@ public class Kontrolleri {
 
     Viesti viesti = new Viesti();
     Viestit viestit = new Viestit(new ArrayList<>());
+    private JdbcTemplate jdbc;
+
+    public Kontrolleri(@Autowired JdbcTemplate jdbc){
+        this.jdbc = jdbc;
+    }
 
     @RequestMapping("/etusivu")
     public String Etusivu(Model model) {
@@ -56,8 +63,6 @@ public class Kontrolleri {
 //        model.addAttribute("otsikko", "Golfjuorut");
 //        return "Golfjuorut";
 //    }
-
-
 
     @GetMapping("/muokkaa")
     public String muokkaaSanontaa(@RequestParam(name = "id") int id, Model model) {
