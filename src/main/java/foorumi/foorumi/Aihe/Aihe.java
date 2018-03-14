@@ -22,6 +22,10 @@ public class Aihe {
     public Aihe() {
     }
 
+    public Aihe(String alue) {
+        this.alue = alue;
+    }
+
     public String getOtsikko() {
         return otsikko;
     }

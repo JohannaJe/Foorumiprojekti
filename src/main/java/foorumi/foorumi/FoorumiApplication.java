@@ -15,9 +15,6 @@ public class FoorumiApplication {
 //	@Bean
 //	CommandLineRunner demo ()
 
-
-
-
 //	@Bean
 //	CommandLineRunner sd (GolfRepo golfry, KayttajaRepo kayttajary) {
 //		return (args) -> {

@@ -1,10 +1,12 @@
 package foorumi.foorumi.Viesti;
 
 import foorumi.foorumi.Viesti.Viesti;
+import org.springframework.stereotype.Component;
 
 import java.util.Iterator;
 import java.util.List;
 
+@Component
 public class Viestit {
 
     private List<Viesti> viestit;
@@ -21,8 +23,8 @@ public class Viestit {
 
    /* public void lisaa(Viesti viesti) {
         viesti.setId(viesti.getId());
-        viestit.add(viesti);}
-
+        viestit.add(viesti);
+    }
 
     public boolean poista( int id) {
         Iterator<Viesti> it = viestit.iterator();

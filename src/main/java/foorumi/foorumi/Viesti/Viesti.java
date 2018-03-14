@@ -20,7 +20,6 @@ public class Viesti {
     public Viesti(){
     }
 
-
     public Viesti(String teksti, String kayttaja) {
         this.teksti = teksti;
         this.kayttaja = kayttaja;

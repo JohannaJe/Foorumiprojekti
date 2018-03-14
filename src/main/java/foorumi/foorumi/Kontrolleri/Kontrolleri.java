@@ -1,5 +1,6 @@
 package foorumi.foorumi.Kontrolleri;
 
+import foorumi.foorumi.Aihe.Aihe;
 import foorumi.foorumi.Aihe.Aiherepo;
 import foorumi.foorumi.Viesti.Viesti;
 import foorumi.foorumi.Viesti.Viestirepo;
@@ -44,11 +45,14 @@ public class Kontrolleri {
         return "lisaaviesti";
     }
 
-    @PostMapping("/viestisivu")
-    public String lomakeKasittelija(@ModelAttribute Viesti viesti,@RequestParam("id") int id) {
-        viesti.setAihe(ar.findById(id).get());
+    @PostMapping("/autohullut")
+    public String lomakeKasittelija(@ModelAttribute Viesti viesti) {
+        Viesti uusi = new Viesti();
+        uusi.setTeksti(viesti.getTeksti());
+        uusi.setKayttaja(viesti.getKayttaja());
+        uusi.setAihe(new Aihe("Autohullut"));
         vr.save(viesti);
-        return "redirect:/viestisivu"+"?id="+id;
+        return "Autohullut";
     }
 
     @RequestMapping("/kalajutut")
