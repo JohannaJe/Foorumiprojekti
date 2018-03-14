@@ -23,12 +23,12 @@ public class Kontrolleri {
     }
 
     @RequestMapping("/autohullut")
-    public String Autohullut(Model model) {
-        model.addAttribute("otsikko", "Autohullut");
+    public String Autohullut(@ModelAttribute Viesti viesti, Model model) {
+        model.addAttribute("viestit", viestit.getViestit());
         return "Autohullut";
     }
 
-    @GetMapping("/autohullut")
+    @GetMapping("/viestilomake")
     public String viestit(Model model) {
         model.addAttribute("viestiOlio", new Viesti());
         return "lisaaviesti";
