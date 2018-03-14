@@ -1,11 +1,15 @@
 package foorumi.foorumi.Viestit;
 
 import foorumi.foorumi.Viesti.Viesti;
+
+import java.util.Iterator;
 import java.util.List;
 
 public class Viestit {
 
     private List<Viesti> viestit;
+
+    public Viestit(){};
 
     public Viestit(List<Viesti> viestit) {
         this.viestit = viestit;
@@ -15,17 +19,30 @@ public class Viestit {
         return viestit;
     }
 
-    public void lisaaListalle(Viesti viesti){
-        viestit.add(viesti);
+    public void lisaa(Viesti viesti) {
+        viesti.setId(viesti.getId());
+        viestit.add(viesti);}
+
+
+    public boolean poista( int id) {
+        Iterator<Viesti> it = viestit.iterator();
+        while (it.hasNext()) {
+            Viesti v = it.next();
+            if (v.getId() == id) {
+                it.remove();
+                return true;
+            }
+        }
+        return false;
     }
 
-    public void poistaListalta(int indeksi){
-        viestit.remove(indeksi);
+    public Viesti etsi(final int id) {
+        return viestit.parallelStream().filter(viesti->viesti.getId()==id).findFirst().orElse(null);
     }
 
-    public void muutaListalta(int indeksi){
-        Viesti uusi = new Viesti("JOKU MUU ON KUNINGAS", "KAIKKI");
-        viestit.set(indeksi, uusi);
+    public void muokkaa(Viesti viesti) {
+        Viesti vanha =  etsi(viesti.getId());
+        vanha.setTeksti(viesti.getTeksti());
     }
 
     @Override
