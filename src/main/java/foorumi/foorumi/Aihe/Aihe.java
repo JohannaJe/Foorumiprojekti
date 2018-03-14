@@ -17,7 +17,7 @@ public class Aihe {
 
     @OneToMany(mappedBy = "aihe")
     @JsonIgnore
-    public List<Viesti> viestit;
+    public List<Viesti> viesti;
 
     public Aihe() {
     }
@@ -48,5 +48,10 @@ public class Aihe {
 
     public void setAlue(String alue) {
         this.alue = alue;
+    }
+
+    @Override
+    public String toString() {
+        return alue;
     }
 }

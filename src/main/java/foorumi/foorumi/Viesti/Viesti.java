@@ -11,7 +11,7 @@ public class Viesti {
     private String kayttaja;
     @Id
     @GeneratedValue
-    public int id;
+    public Integer id;
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "aihe")
@@ -20,9 +20,10 @@ public class Viesti {
     public Viesti(){
     }
 
-    public Viesti(String teksti, String kayttaja) {
+    public Viesti(String teksti, String kayttaja, Aihe aihe) {
         this.teksti = teksti;
         this.kayttaja = kayttaja;
+        this.aihe = aihe;
     }
 
     public String getTeksti() {
@@ -41,17 +42,17 @@ public class Viesti {
         this.kayttaja = kayttaja;
     }
 
-    public int getId() {
-        return id++;
+    public Integer getId() {
+        return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
     @Override
     public String toString() {
-        return teksti + ", " + kayttaja + ".";
+        return teksti + ", " + kayttaja + " " + aihe + ".";
     }
 
     public Aihe getAihe() {

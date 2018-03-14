@@ -47,11 +47,14 @@ public class Kontrolleri {
 
     @PostMapping("/autohullut")
     public String lomakeKasittelija(@ModelAttribute Viesti viesti) {
+
         Viesti uusi = new Viesti();
         uusi.setTeksti(viesti.getTeksti());
         uusi.setKayttaja(viesti.getKayttaja());
         uusi.setAihe(new Aihe("Autohullut"));
-        vr.save(viesti);
+        System.out.println(uusi);
+        vr.save(uusi);
+        System.out.println("TOIMIIKO?");
         return "Autohullut";
     }
 
