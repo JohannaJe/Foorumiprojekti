@@ -4,16 +4,14 @@ import foorumi.foorumi.Viesti.Viesti;
 import foorumi.foorumi.Viestit.Viestit;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 
 @Controller
 public class Kontrolleri {
 
+    Viesti viesti = new Viesti();
     Viestit viestit = new Viestit(new ArrayList<>());
 
     @RequestMapping("/etusivu")
@@ -61,5 +59,17 @@ public class Kontrolleri {
 
 
 
+    @GetMapping("/muokkaa")
+    public String muokkaaSanontaa(@RequestParam(name = "id") int id, Model model) {
+        Viesti etsitty = viesti.etsi(id);
+        if (etsitty == null)
+            return "redirect:etusivu";
+        model.addAttribute("viesti", etsitty);
+        return "muokkaus";
+    }
 
-}
+    @PostMapping("/muokattu")
+    public String tallennaMuokattu(Viesti viesti, Model model) {
+        viesti.muokkaa(viesti);
+        return "Etusivu";
+}}
