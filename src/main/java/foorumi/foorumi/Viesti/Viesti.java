@@ -1,5 +1,7 @@
 package foorumi.foorumi.Viesti;
 
+import foorumi.foorumi.Viestit.Viestit;
+
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -14,7 +16,7 @@ public class Viesti {
         id++;
     }
 
-    private List<Viesti> viestit = new ArrayList<>();
+    private List<Viestit> viestit = new ArrayList<>();
 
     public Viesti(String teksti, String kayttaja) {
         this.teksti = teksti;
