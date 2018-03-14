@@ -1,7 +1,10 @@
 package foorumi.foorumi.Kontrolleri;
 
+import foorumi.foorumi.Aihe.Aiherepo;
 import foorumi.foorumi.Viesti.Viesti;
+import foorumi.foorumi.Viesti.Viestirepo;
 import foorumi.foorumi.Viesti.Viestit;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -10,6 +13,14 @@ import java.util.ArrayList;
 
 @Controller
 public class Kontrolleri {
+
+    private Viestirepo vr;
+    private Aiherepo ar;
+
+    public Kontrolleri(@Autowired Aiherepo ar, @Autowired Viestirepo vr) {
+        this.vr = vr;
+        this.ar = ar;
+    }
 
     Viesti viesti = new Viesti();
     Viestit viestit = new Viestit(new ArrayList<>());
