@@ -60,7 +60,7 @@ public class Kontrolleri {
 
 
     @GetMapping("/muokkaa")
-    public String muokkaaSanontaa(@RequestParam(name = "id") int id, Model model) {
+    public String muokkaa(@RequestParam(name = "id") int id, Model model) {
         Viesti etsitty = viesti.etsi(id);
         if (etsitty == null)
             return "redirect:etusivu";
