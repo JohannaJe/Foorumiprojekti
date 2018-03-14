@@ -35,7 +35,8 @@ public class Kontrolleri {
 
     @RequestMapping("/autohullut")
     public String Autohullut(@ModelAttribute Viesti viesti, Model model) {
-        model.addAttribute("viestit", viestit.getViestit());
+        model.addAttribute("viesti", viesti.getTeksti());
+        model.addAttribute("kayttaja", viesti.getKayttaja());
         return "Autohullut";
     }
 
