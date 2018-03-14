@@ -60,10 +60,10 @@ public class Kontrolleri {
 
 
     @GetMapping("/muokkaa")
-    public String muokkaa(@RequestParam(name = "id") int id, Model model) {
+    public String muokkaaViestia(@RequestParam(name = "id") int id, Model model) {
         Viesti etsitty = viestit.etsi(id);
         if (etsitty == null)
-            return "redirect:Etusivu";
+            return "Etusivu";
         model.addAttribute("viesti", etsitty);
         return "muokkaus";
     }
@@ -72,4 +72,12 @@ public class Kontrolleri {
     public String tallennaMuokattu(Viesti viesti, Model model) {
         viestit.muokkaa(viesti);
         return "Etusivu";
-}}
+    }
+
+    @GetMapping("/poista")
+    public String poistaViesti(@RequestParam(name = "id") int id) {
+        viestit.poista(id);
+        return "Etusivu";
+    }
+
+}
