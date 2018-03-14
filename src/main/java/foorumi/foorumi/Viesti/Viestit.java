@@ -1,4 +1,4 @@
-package foorumi.foorumi.Viestit;
+package foorumi.foorumi.Viesti;
 
 import foorumi.foorumi.Viesti.Viesti;
 

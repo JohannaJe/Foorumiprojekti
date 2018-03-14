@@ -1,7 +1,7 @@
 package foorumi.foorumi.Kontrolleri;
 
 import foorumi.foorumi.Viesti.Viesti;
-import foorumi.foorumi.Viestit.Viestit;
+import foorumi.foorumi.Viesti.Viestit;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
