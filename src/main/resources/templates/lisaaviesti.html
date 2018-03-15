@@ -3,13 +3,17 @@
 <head>
     <title>Lisää viesti</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link th:rel="stylesheet" th:href="@{etusivutyyli.css}" />
 </head>
 <body>
-<div>
 
-    <h1>Osallistu keskusteluun, vastaa edellisiin viesteihin alla!</h1>
+<div class="topnav" th:include="Etusivu::navibar"></div>
 
-    <form th:action="@{/ohjaus}" th:object="${viestiOlio}" id="myform" method="post">
+<div style="text-align: center">
+
+    <h1 style="text-align: center; color: white;">Osallistu keskusteluun, vastaa edellisiin viesteihin alla!</h1>
+
+    <form style="width: 80%; margin: 0 auto; border: 3px solid black; background-color: #565656; color: white; border-radius: 20px;" th:action="@{/ohjaus}" th:object="${viestiOlio}" id="myform" method="post">
         <div><label th:text="'Viestisi'" th:for="teksti"/></div>
         <div><textarea cols="60" rows="6" th:field="*{teksti}"/></div>
         <p>Nimimerkkisi: <input type="text" th:field="*{kayttaja}" /></p>

@@ -114,9 +114,16 @@ public class Kontrolleri {
 //        return "Etusivu";
 //    }
 
+    @GetMapping("/poista")
+    public String poistaViesti(@RequestParam(name = "id") int id) {
+        vr.deleteById(id);
+        return "redirect:etusivu";
+    }
+
     @GetMapping("/lyhytlistaus")
     public String haetutViestit(Hakusana sana, Model model) {
-        String sql = "SELECT teksti, kayttaja, id, alue FROM viesti";
+        String sql = "SELECT teksti, kayttaja, id, alue FROM viesti WHERE (teksti LIKE '%"+sana+"%' OR kayttaja LIKE '%"+sana+"%')";
+        System.out.println(sql);
         if (sana == null || sana.getHakusana() == null || sana.getHakusana().trim().isEmpty())
             return "redirect:etusivu";
         model.addAttribute("otsikko", "Haetut viestit)");
@@ -124,17 +131,5 @@ public class Kontrolleri {
         model.addAttribute("hakusana", sana.getHakusana());
         return "haetut";
     }
-
-    @GetMapping("/poista")
-    public String poistaViesti(@RequestParam(name = "id") int id) {
-        vr.deleteById(id);
-        return "redirect:etusivu";
-    }
-
-    @PutMapping("/muokkaa/{id}")
-    public String muokkaaViestia(@PathVariable(name = "id") int id, @RequestBody Viesti viesti) {
-        viesti.setId(id);
-        vr.save(viesti);
-        return "Etusivu";
-    }
 }
+

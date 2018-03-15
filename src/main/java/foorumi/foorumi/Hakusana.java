@@ -22,6 +22,10 @@ public class Hakusana {
     public void setHakusana(String hakusana) {
         this.hakusana = hakusana;
     }
+    @Override
+    public String toString() {
+        return hakusana;
+    }
 }
 
 
