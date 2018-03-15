@@ -29,6 +29,16 @@ public class FoorumiApplication {
             lista.add(v2);
             Viesti v3 = new Viesti("Leffalopinat", "Siru", "Hieno taustakuva");
             lista.add(v3);
+			Viesti v4 = new Viesti("Leffalopinat", "Tanja", "Niin on! Valkoiset ruusut on hienoin suomalainen elokuva. Helena Kara voisi olla kansainvälinen tähti.");
+			lista.add(v4);
+			Viesti v5 = new Viesti("Leffalopinat", "Siru", "Niin voisi!!!");
+			lista.add(v5);
+			Viesti v6 = new Viesti("Golfjuorut", "Otso", "Mitähän ajattelevat syksyllä ne osakkeenomistajat jotka syksyllä sitoutuivat 800e pelikausimaksuun,kun UUNO antaa rajoittamattoman pelioikeuden 700e-10%");
+			lista.add(v6);
+			Viesti v7 = new Viesti("Golfjuorut", "Putti-possu", "Golfari ei jää pohtimaan menneitä. Pätee pelaamiseen, mutta myös näihin maksuihin.");
+			lista.add(v7);
+			Viesti v8 = new Viesti("Golfjuorut", "Putti-possu", "Sitä paitsi ei tässä ole mitään elämälle vierasta – ostit eilen kahvipaketin 4 eurolla ja tänään saisi tarjouksesta 2 pkt 5€:lla. Harva meistä jää suremaan edellispäivän kahvipaketin hintaa.");
+			lista.add(v8);
 
 
 			vr.saveAll(lista);
