@@ -60,6 +60,15 @@ public class Viesti {
         this.kayttaja = kayttaja;
     }
 
+    @Override
+    public String toString() {
+        return "Viesti{" +
+                "teksti='" + teksti + '\'' +
+                ", id=" + id +
+                ", alue='" + alue + '\'' +
+                ", kayttaja='" + kayttaja + '\'' +
+                '}';
+    }
 }
 
 

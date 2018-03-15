@@ -1,36 +1,27 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <title>Muokkaus</title>
+    <link th:rel="stylesheet" th:href="@{etusivutyyli.css}" />
 </head>
-<body>
-<div>
-    <h1 th:text="Muokkaa"></h1>
-    <form action="#" th:action="@{/muokattu}"
-          th:object="${viesti}" method="post">
-        <div>
-            <label for="teksti">Teksti:</label>
-            <div>
-                <textarea th:field="*{teksti}" id="teksti" th:required="required" th:text="*{teksti}"></textarea>
-            </div>
-        </div>
-        <div>
-            <div><input type="submit" value="Hyväksy" /></div>
-            <div><a th:href="'/poista?id='+${viesti.id}"><input type="button" value="Poista" /></a></div>
-            <div><button type="button" id="peruuta"  th:text="'Peruuta'" /></div>
-        </div>
-        <input type="hidden" th:field="*{id}"/>
-    </form>
+<body style="background-image: url('/kirje.png'); background-size: cover;">
 
+<div class="topnav" th:include="Etusivu::navibar"></div>
+
+<div style="text-align: center">
+
+    <h1 style="text-align: center; color: white;">Muokkaa valitsemaasi viestiä!"</h1>
+
+    <form  style="width: 80%; margin: 0 auto; border: 3px solid black; background-color: #565656; color: white; border-radius: 20px;" th:action="@{/muokattu}" th:object="${viesti}" method="post">
+            <div><label th:text="'Muokattava viesti:'" th:for="teksti"/></div>
+            <div><textarea cols="60" rows="6" th:field="*{teksti}" th:required="required"/></div>
+            <p>Nimimerkkisi: <input type="text" th:field="*{kayttaja}" /></p>
+        <p><input type="submit" value="Tallenna muutoksesi!" /> <input type="reset" value="Jos kirjoitit väärin, resetoi kenttä tästä!" /></p>
+        <input type="hidden" th:field="*{id}"/>
+        <input type="hidden" th:field="*{alue}"/>
+    </form>
 </div>
 
-<script>
-    $(function() {
-        $("#peruuta").click(function() {
-            window.location.href = "/etusivu";
-        });
-    });
-</script>
 </body>
 </html>

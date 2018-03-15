@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 public class Kontrolleri {
@@ -25,8 +26,8 @@ public class Kontrolleri {
         this.jdbc = jdbc;
     }
 
-    Viesti viesti = new Viesti();
-    Viestit viestit = new Viestit(new ArrayList<>());
+//    Viesti viesti = new Viesti();
+//    Viestit viestit = new Viestit(new ArrayList<>());
 
     // printtaa kaikki viestit perustuen foorumi-sivulla muodostettuun sql-lausekkeeseen!
     private List<Viesti> getViestis(String sql) {
@@ -108,19 +109,34 @@ public class Kontrolleri {
         return "golfjuorut";
     }
 
-//    @PostMapping("/hakutulos")
-//    public String haku(@ModelAttribute Hakusana hakusana, Model model) {
-//        model.addAttribute( "hakutulos", vr.haeKirjaimella(hakusana.getHakusana() ) );
-//        return "Etusivu";
-//    }
-
     @GetMapping("/poista")
     public String poistaViesti(@RequestParam(name = "id") int id) {
         vr.deleteById(id);
         return "redirect:etusivu";
     }
 
-    @GetMapping("/lyhytlistaus")
+    @GetMapping("/muokkaa")
+    public String muokkaaViesti(@RequestParam(name = "id") int id, Model model) {
+        Optional<Viesti> optviesti = vr.findById(id);
+        if (!optviesti.isPresent()) {
+            throw new RuntimeException("Muokataan olematontq viestiä");
+        }
+        model.addAttribute("viesti", optviesti.get());
+        return "muokkaus";
+    }
+
+    @PostMapping("/muokattu")
+    public String tallennaMuokattu(Viesti viesti, Model model) {
+        if (viesti == null || viesti.getTeksti() == null || viesti.getTeksti().trim().isEmpty())
+            throw new RuntimeException("Ei pitäis päätyä tänne, tyhjä viesti");
+        String sql = "UPDATE viesti SET kayttaja = '" + viesti.getKayttaja() + "', teksti = '" + viesti.getTeksti() + "' WHERE id = " + viesti.getId();
+        jdbc.update(sql);
+        System.out.println(viesti.getAlue());
+        String url = "redirect:/" + viesti.getAlue().toLowerCase();
+        return url;
+    }
+
+    @GetMapping("/hakutulokset")
     public String haetutViestit(Hakusana sana, Model model) {
         String sql = "SELECT teksti, kayttaja, id, alue FROM viesti WHERE (teksti LIKE '%"+sana+"%' OR kayttaja LIKE '%"+sana+"%')";
         System.out.println(sql);
