@@ -1,6 +1,6 @@
 package foorumi.foorumi.Viesti;
 
-import foorumi.foorumi.Aihe.Aihe;
+import foorumi.foorumi.Kayttaja.Kayttaja;
 
 import javax.persistence.*;
 
@@ -8,23 +8,18 @@ import javax.persistence.*;
 public class Viesti {
 
     public String teksti;
-    public String kayttaja;
     @Id
     @GeneratedValue
     public Integer id;
     public String alue;
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "aihe")
-    public Aihe aihe;
+//    @ManyToOne(cascade = CascadeType.ALL)
+//    @JoinColumn(name = "kayttaja")
+//    public Kayttaja kayttaja;
+
+    public String kayttaja;
 
     public Viesti(){
-    }
-
-    public Viesti(String teksti, String kayttaja, String alue) {
-        this.teksti = teksti;
-        this.kayttaja = kayttaja;
-        this.alue = alue;
     }
 
     public String getTeksti() {
@@ -35,33 +30,12 @@ public class Viesti {
         this.teksti = teksti;
     }
 
-    public String getKayttaja() {
-        return kayttaja;
-    }
-
-    public void setKayttaja(String kayttaja) {
-        this.kayttaja = kayttaja;
-    }
-
     public Integer getId() {
         return id;
     }
 
     public void setId(Integer id) {
         this.id = id;
-    }
-
-    @Override
-    public String toString() {
-        return teksti + ", " + kayttaja + " " + aihe + ".";
-    }
-
-    public Aihe getAihe() {
-        return aihe;
-    }
-
-    public void setAihe(Aihe aihe) {
-        this.aihe = aihe;
     }
 
     public String getAlue() {
@@ -72,6 +46,13 @@ public class Viesti {
         this.alue = alue;
     }
 
+    public String getKayttaja() {
+        return kayttaja;
+    }
+
+    public void setKayttaja(String kayttaja) {
+        this.kayttaja = kayttaja;
+    }
 
 }
 

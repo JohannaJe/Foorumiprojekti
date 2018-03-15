@@ -8,6 +8,8 @@
 </head>
 <body>
 
+<!--KIRJAUDU SISÄÄN NAPPI JA TOIMINTA-->
+
 <button class="ekanappi" onclick="document.getElementById('id01').style.display='block'">Kirjaudu</button>
 
 <div id="id01" class="modal">
@@ -19,6 +21,10 @@
         </div>
 
         <div class="container">
+            <h1>Kirjaudu sisään!</h1>
+            <p>Täytä tiedot ja kirjaudu sisään!</p>
+            <hr>
+
             <label><b>Käyttäjänimi</b></label>
             <input class="modalinput" type="text" placeholder="Syötä käyttäjänimi" name="uname" required>
 
@@ -37,8 +43,42 @@
     </form>
 </div>
 
+<!--REKISTERÖIDY NAPPI JA TOIMINTA!-->
+
+<button class="ekanappi" onclick="document.getElementById('id02').style.display='block'">Rekisteröidy</button>
+
+<div id="id02" class="modal">
+
+    <form action="action_page.php" class="modal-content animate">
+        <div class="imgcontainer">
+            <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
+            <img th:src="@{AVATAR.png}" class="avatar">
+        </div>
+    <div class="container">
+        <h1>Luo käyttäjätili</h1>
+        <p>Täytä tiedot ja luo käyttäjätilisi!</p>
+        <hr>
+
+        <label><b>Käyttäjänimi</b></label>
+        <input class="modalinput" type="text" placeholder="Syötä kaättäjänimi" name="uname" required>
+
+        <label><b>Salasana</b></label>
+        <input class="modalinput" type="password" placeholder="Syötä salasana" name="psw" required>
+
+        <button type="submit">Rekisteröidy</button>
+    </div>
+
+        <div class="container" style="background-color:#f1f1f1">
+            <button type="button" onclick="document.getElementById('id02').style.display='none'" class="cancelbtn">
+                Peruuta
+            </button>
+        </div>
+
+    </form>
+</div>
+
 <div class="topnav" th:fragment="navibar">
-    <a class="active" href="etusivu">Home</a>
+    <a class="active" href="etusivu">Etusivu</a>
     <a href="kalajutut">Kalajutut</a>
     <a href="leffalopinat">Leffalöpinät</a>
     <a href="autohullut">Autohullut</a>
@@ -60,16 +100,5 @@
 
 <p class="tervehdys">Tervetuloa turisemaan!</p>
 
-<script>
-    // Aktivoi modaali
-    var modal = document.getElementById('id01');
-
-    // Sulje modaali mistä vaan, kunhan klikkaa lomakkeen ulkopuolelta
-    window.onclick = function (event) {
-        if (event.target == modal) {
-            modal.style.display = "none";
-        }
-    }
-</script>
 </body>
 </html>
