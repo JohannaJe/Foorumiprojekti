@@ -1,6 +1,5 @@
 package foorumi.foorumi.Kontrolleri;
 
-import foorumi.foorumi.Aihe.Aiherepo;
 import foorumi.foorumi.Viesti.Viesti;
 import foorumi.foorumi.Viesti.Viestirepo;
 import foorumi.foorumi.Viesti.Viestit;
@@ -18,12 +17,10 @@ public class Kontrolleri {
 
     private Viestirepo vr;
 
-    private Aiherepo ar;
     private JdbcTemplate jdbc;
 
-    public Kontrolleri(@Autowired Viestirepo vr, @Autowired Aiherepo ar, @Autowired JdbcTemplate jdbc) {
+    public Kontrolleri(@Autowired Viestirepo vr, @Autowired JdbcTemplate jdbc) {
         this.vr = vr;
-        this.ar = ar;
         this.jdbc = jdbc;
     }
 
