@@ -48,7 +48,7 @@
 
 <div id="id02" class="modal">
 
-    <form action="action_page.php" class="modal-content animate">
+    <form th:action="@{/rekisteroitynyt}" class="modal-content animate">
         <div class="imgcontainer">
             <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
             <img th:src="@{possu3.jpg}" class="avatar">
@@ -59,10 +59,10 @@
         <hr>
 
         <label><b>Käyttäjänimi</b></label>
-        <input class="modalinput" type="text" placeholder="Syötä kaättäjänimi" name="uname" required>
+        <input class="modalinput" type="text" placeholder="Syötä kaättäjänimi" name="nimimerkki" required>
 
         <label><b>Salasana</b></label>
-        <input class="modalinput" type="password" placeholder="Syötä salasana" name="psw" required>
+        <input class="modalinput" type="password" placeholder="Syötä salasana" name="salasana" required>
 
         <button type="submit">Rekisteröidy</button>
     </div>

@@ -1,6 +1,8 @@
 package foorumi.foorumi;
 
 
+import foorumi.foorumi.Kayttaja.Kayttaja;
+import foorumi.foorumi.Kayttaja.Kayttajarepo;
 import foorumi.foorumi.Viesti.Viesti;
 import foorumi.foorumi.Viesti.Viestirepo;
 import foorumi.foorumi.Viesti.Viestit;
@@ -20,7 +22,7 @@ public class FoorumiApplication {
     }
 
 	@Bean //Alustaa tietokannan
-	CommandLineRunner luoOppilaat (Viestirepo vr) {
+	CommandLineRunner luoViestit (Viestirepo vr) {
 		return (args) -> {
 			List<Viesti> lista = new ArrayList<>();
 			Viesti v = new Viesti("Kalajutut", "Turo", "Sain ison hauen");
@@ -53,4 +55,16 @@ public class FoorumiApplication {
 			vr.saveAll(lista);
 		};
 	}
+
+    @Bean //Alustaa tietokannan
+    CommandLineRunner luoKayttajat (Kayttajarepo kr) {
+        return (args) -> {
+            List<Kayttaja> lista = new ArrayList<>();
+            Kayttaja v = new Kayttaja("Koodari", "Salasana");
+            lista.add(v);
+            Kayttaja v2 = new Kayttaja("Java", "Koodari");
+            lista.add(v2);
+            kr.saveAll(lista);
+        };
+    }
 	}

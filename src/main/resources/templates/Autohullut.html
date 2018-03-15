@@ -13,10 +13,13 @@
 
 <!--TÄMÄ FRAGMENTILLA JOKAISELLA SIVULLA!-->
 <div class="viesti" th:fragment="viesti">
-    <table style="width: 80%; margin: 0 auto; border: 3px solid black; background-color: #565656; color: white; border-radius: 20px;">
+    <table style="width: 90%; margin: 0 auto; border: 2px solid black; background-color: rgba(86, 86, 86, 0.8); color: white; border-radius: 20px;">
 
         <tr th:each="viesti : ${viestit}" th:object="${viesti}">
             <td hidden="hidden"; style="padding: 20px;" th:text="*{id}"/>
+            <td hidden="hidden"; th:text="*{alue}"/>
+            <!--<td  style="padding: 20px;" th:text="*{aika}"/>-->
+            <td style="padding: 20px;"><script> document.write(new Date().toDateString()); </script></td>
             <td style="padding: 20px;" th:text="*{teksti}"/>
             <td style="padding-left: 20px; padding-top: 20px; padding-bottom: 20px; font-weight: bold" th:text="*{kayttaja}"/>
             <td><h4 style="text-align: center; color: white;"><a th:href="'/poista?id='+*{id}">POISTA</a></h4></td>
@@ -25,6 +28,7 @@
         <thead style="font-size: x-large">
         <tr>
             <th hidden="hidden"; style="text-align: left; padding: 20px;">ID</th>
+            <th style="text-align: left; padding: 20px;">Päivämäärä</th>
             <th style="text-align: left; padding: 20px;">Kommentti</th>
             <th style="text-align: left; padding-left: 20px; padding-top: 20px; padding-bottom: 20px;">Käyttäjä</th>
         </tr>

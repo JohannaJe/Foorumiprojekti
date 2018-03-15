@@ -20,6 +20,11 @@ public class Kayttaja {
     public Kayttaja() {
     }
 
+    public Kayttaja(String nimimerkki, String salasana) {
+        this.nimimerkki = nimimerkki;
+        this.salasana = salasana;
+    }
+
     public String getNimimerkki() {
         return nimimerkki;
     }
