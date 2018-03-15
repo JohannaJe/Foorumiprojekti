@@ -39,7 +39,16 @@ public class FoorumiApplication {
 			lista.add(v7);
 			Viesti v8 = new Viesti("Golfjuorut", "Putti-possu", "Sitä paitsi ei tässä ole mitään elämälle vierasta – ostit eilen kahvipaketin 4 eurolla ja tänään saisi tarjouksesta 2 pkt 5€:lla. Harva meistä jää suremaan edellispäivän kahvipaketin hintaa.");
 			lista.add(v8);
-
+			Viesti v9 = new Viesti("Kalajutut", "Marjatta", "Mulla on varmasti isoin!");
+			lista.add(v9);
+			Viesti v10 = new Viesti("Autohullut", "Salama", "Onko kukaan ostellut autoon philipsin blue vision ym merkkisiä polttimoita? Kumpi olisi parempi sinistä valoa hohtavat vai valkoista?");
+			lista.add(v10);
+			Viesti v11 = new Viesti( "Autohullut", "Uuno", "Mulla on hiace 4x4 veto. Nyt olis tarvis irrottaa jarrurumpu, mutta ei lähde ruuvaamalla reijistä pultilla kun kierteet korkanneet. Lähteekö jarrurumpu irti, jos ottaa keskimutterin irti? Ettei laakeri hajoa?" );
+			lista.add(v11);
+			Viesti v12 = new Viesti("Autohullut", "Helka", "Joskus jarrurumpu voi vaatia rajuakin väkivaltaa, eli isoa vasaraa ja nitkuttelua rummun jokapuolelle.");
+			lista.add(v12);
+			Viesti v13 = new Viesti ("Autohullut", "XXX", "Salama: Itse laitoin viime talvena Philipsin H4 55/105 wattiset. Ne on ainakin kirkkaat eikä häikäise vastaantulijoita. Laittomathan ne on mutta.....");
+			lista.add(v13);
 
 			vr.saveAll(lista);
 		};
