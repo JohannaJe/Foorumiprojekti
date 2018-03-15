@@ -37,6 +37,34 @@
     </form>
 </div>
 
+<button class="ekanappi" onclick="document.getElementById('id02').style.display='block'">Rekisteröidy</button>
+
+<div id="id02" class="modal">
+
+    <form action="action_page.php" style="border:1px solid #ccc">
+    <div class="container">
+        <h1>Sign Up</h1>
+        <p>Please fill in this form to create an account.</p>
+        <hr>
+
+        <label><b>Kayttajanimi</b></label>
+        <input class="modalinput" type="text" placeholder="Syötä kayttajänimi" name="uname" required>
+
+        <label><b>Salasana</b></label>
+        <input class="modalinput" type="password" placeholder="Syötä salasana name="psw" required>
+
+        <label>
+            <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
+        </label>
+
+        <div class="clearfix">
+            <button type="button" class="cancelbtn">Peruuta</button>
+            <button type="submit" class="signupbtn">Rekisteröidy</button>
+        </div>
+    </div>
+    </form>
+</div>
+
 <div class="topnav" th:fragment="navibar">
     <a class="active" href="etusivu">Home</a>
     <a href="kalajutut">Kalajutut</a>
