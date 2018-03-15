@@ -1,5 +1,6 @@
 package foorumi.foorumi.Kontrolleri;
 
+import foorumi.foorumi.Hakusana;
 import foorumi.foorumi.Viesti.Viesti;
 import foorumi.foorumi.Viesti.Viestirepo;
 import foorumi.foorumi.Viesti.Viestit;
@@ -56,6 +57,7 @@ public class Kontrolleri {
     @RequestMapping("/etusivu")
     public String etusivu(Model model) {
         model.addAttribute("otsikko", "Etusivu");
+        model.addAttribute( "haku", new Hakusana());
         return "Etusivu";
     }
 
@@ -87,7 +89,7 @@ public class Kontrolleri {
         String sql = "SELECT teksti, kayttaja, id, alue FROM viesti WHERE alue = 'Kalajutut'";
         List<Viesti> viestit = getViestis(sql);
         model.addAttribute("viestit", viestit);
-        return "Kalajutut";
+        return "kalajutut";
     }
 
     @RequestMapping("/leffalopinat")
@@ -95,7 +97,7 @@ public class Kontrolleri {
         String sql = "SELECT teksti, kayttaja, id, alue FROM viesti WHERE alue = 'Leffalopinat'";
         List<Viesti> viestit = getViestis(sql);
         model.addAttribute("viestit", viestit);
-        return "Leffalopinat";
+        return "leffalopinat";
     }
 
     @RequestMapping("/golfjuorut")
@@ -103,9 +105,14 @@ public class Kontrolleri {
         String sql = "SELECT teksti, kayttaja, id, alue FROM viesti WHERE alue = 'Golfjuorut'";
         List<Viesti> viestit = getViestis(sql);
         model.addAttribute("viestit", viestit);
-        return "Golfjuorut";
+        return "golfjuorut";
     }
 
+    @PostMapping("/hakutulos")
+    public String haku(@ModelAttribute Hakusana hakusana, Model model) {
+        model.addAttribute( "hakutulos", vr.haeKirjaimella(hakusana.getHakusana() ) );
+        return "Etusivu";
+    }
    /* @GetMapping("/muokkaa")
     public String muokkaaViestia(@RequestParam(name = "id") int id, Model model) {
         Viesti etsitty = viestit.etsi(id);
