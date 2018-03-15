@@ -13,9 +13,11 @@ public class Viesti {
     public Integer id;
     public String alue;
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "kayttaja")
-    public Kayttaja kayttaja;
+//    @ManyToOne(cascade = CascadeType.ALL)
+//    @JoinColumn(name = "kayttaja")
+//    public Kayttaja kayttaja;
+
+    public String kayttaja;
 
     public Viesti(){
     }
@@ -44,11 +46,11 @@ public class Viesti {
         this.alue = alue;
     }
 
-    public Kayttaja getKayttaja() {
+    public String getKayttaja() {
         return kayttaja;
     }
 
-    public void setKayttaja(Kayttaja kayttaja) {
+    public void setKayttaja(String kayttaja) {
         this.kayttaja = kayttaja;
     }
 }
