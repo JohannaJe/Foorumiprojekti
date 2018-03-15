@@ -113,31 +113,11 @@ public class Kontrolleri {
         model.addAttribute( "hakutulos", vr.haeKirjaimella(hakusana.getHakusana() ) );
         return "Etusivu";
     }
-   /* @GetMapping("/muokkaa")
-    public String muokkaaViestia(@RequestParam(name = "id") int id, Model model) {
-        Viesti etsitty = viestit.etsi(id);
-        if (etsitty == null)
-            return "Etusivu";
-        model.addAttribute("viesti", etsitty);
-        return "muokkaus";
-    }*/
 
-    /*@PostMapping("/muokattu")
-    public String tallennaMuokattu(Viesti viesti, Model model) {
-        viestit.muokkaa(viesti);
-        return "Etusivu";
-    }*/
-
-    /*@GetMapping("/poista")
+    @GetMapping("/poista")
     public String poistaViesti(@RequestParam(name = "id") int id) {
-        viestit.poista(id);
-        return "Etusivu";
-    }*/
-
-    @DeleteMapping("/poista/{id}")
-    public String poistaViesti(@PathVariable(name = "id") int id) {
         vr.deleteById(id);
-        return "Etusivu";
+        return "redirect:etusivu";
     }
 
     @PutMapping("/muokkaa/{id}")
@@ -146,5 +126,4 @@ public class Kontrolleri {
         vr.save(viesti);
         return "Etusivu";
     }
-
 }
