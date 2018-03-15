@@ -35,4 +35,5 @@ public class Kayttaja {
     public void setSalasana(String salasana) {
         this.salasana = salasana;
     }
+
 }

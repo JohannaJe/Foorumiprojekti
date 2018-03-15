@@ -53,6 +53,7 @@ public class Viesti {
     public void setKayttaja(String kayttaja) {
         this.kayttaja = kayttaja;
     }
+
 }
 
 
