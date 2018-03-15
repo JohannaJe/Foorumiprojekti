@@ -43,10 +43,17 @@
     <a href="leffalopinat">Leffalöpinät</a>
     <a href="autohullut">Autohullut</a>
     <a href="golfjuorut">Golfjuorut</a>
-    <form class="etsi" action="/tulossivu"> <!--tätä ei vielä olemassa-->
+
+    <!--<form class="etsi" action="/hakutulos">  tätä ei vielä olemassa-->
+    <form th:action="@{/hakutulos}"
+          th:object="${haku}" method="post">
+
+        <input th:field="*{hakusana}"/>
+        <br>
         <input type="text" placeholder="Hae foorumilta.." name="search">
         <button type="submit" hidden="hidden"></button>
     </form>
+
 </div>
 
 <img class="logo" th:src="@{lentavasika.jpg}" />

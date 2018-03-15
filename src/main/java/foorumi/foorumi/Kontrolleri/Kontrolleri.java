@@ -2,6 +2,7 @@ package foorumi.foorumi.Kontrolleri;
 
 import foorumi.foorumi.Aihe.Aihe;
 import foorumi.foorumi.Aihe.Aiherepo;
+import foorumi.foorumi.Hakusana;
 import foorumi.foorumi.Viesti.Viesti;
 import foorumi.foorumi.Viesti.Viestirepo;
 import foorumi.foorumi.Viesti.Viestit;
@@ -34,6 +35,7 @@ public class Kontrolleri {
     @RequestMapping("/etusivu")
     public String Etusivu(Model model) {
         model.addAttribute("otsikko", "Etusivu");
+        model.addAttribute( "haku", new Hakusana());
         return "Etusivu";
     }
 
@@ -97,6 +99,27 @@ public class Kontrolleri {
         model.addAttribute("otsikko", "Golfjuorut");
         return "Golfjuorut";
     }
+
+    /*@RequestMapping("/Etusivu")
+    public String hakunappi (Model model) {
+        model.addAttribute( "haku", new Hakusana() );
+        return "Etusivu";
+
+    }*/
+
+   /* @PostMapping("/hakutulos")
+    public String haku(@ModelAttribute Hakusana hakusana, Model model) {
+        model.addAttribute( "hakutulos", vr.findByNameStartingWith( hakusana.getHakusana() ) );
+        return "Etusivu";
+
+    }*/
+
+    @PostMapping("/hakutulos")
+    public String haku(@ModelAttribute Hakusana hakusana, Model model) {
+        model.addAttribute( "hakutulos", vr.haeKirjaimella(hakusana.getHakusana() ) );
+        return "Etusivu";
+    }
+
 
    /* @GetMapping("/muokkaa")
     public String muokkaaViestia(@RequestParam(name = "id") int id, Model model) {
