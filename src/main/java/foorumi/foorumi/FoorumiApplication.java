@@ -28,6 +28,9 @@ public class FoorumiApplication {
 			lista.add(v);
             Viesti v2 = new Viesti("Kalajutut", "Make", "Mun haukeni on taatusti isompi kuin sun haukesi");
             lista.add(v2);
+            Viesti v3 = new Viesti("Leffalopinat", "Siru", "Hieno taustakuva");
+            lista.add(v3);
+
 
 			vr.saveAll(lista);
 		};
