@@ -14,9 +14,9 @@ public class Aihe {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int koodi;
 
-    @OneToMany(mappedBy = "aihe")
+   /* @OneToMany(mappedBy = "aihe")
     @JsonIgnore
-    public List<Viesti> viesti;
+    public List<Viesti> viesti; */
 
     public Aihe() {
     }
