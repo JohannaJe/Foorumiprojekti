@@ -108,10 +108,21 @@ public class Kontrolleri {
         return "golfjuorut";
     }
 
-    @PostMapping("/hakutulos")
-    public String haku(@ModelAttribute Hakusana hakusana, Model model) {
-        model.addAttribute( "hakutulos", vr.haeKirjaimella(hakusana.getHakusana() ) );
-        return "Etusivu";
+//    @PostMapping("/hakutulos")
+//    public String haku(@ModelAttribute Hakusana hakusana, Model model) {
+//        model.addAttribute( "hakutulos", vr.haeKirjaimella(hakusana.getHakusana() ) );
+//        return "Etusivu";
+//    }
+
+    @GetMapping("/lyhytlistaus")
+    public String haetutViestit(Hakusana sana, Model model) {
+        String sql = "SELECT teksti, kayttaja, id, alue FROM viesti";
+        if (sana == null || sana.getHakusana() == null || sana.getHakusana().trim().isEmpty())
+            return "redirect:etusivu";
+        model.addAttribute("otsikko", "Haetut viestit)");
+        model.addAttribute("viestit", getViestis(sql));
+        model.addAttribute("hakusana", sana.getHakusana());
+        return "haetut";
     }
 
     @GetMapping("/poista")

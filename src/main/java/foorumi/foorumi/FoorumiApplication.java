@@ -19,7 +19,6 @@ public class FoorumiApplication {
         SpringApplication.run(FoorumiApplication.class, args);
     }
 
-
 	@Bean //Alustaa tietokannan
 	CommandLineRunner luoOppilaat (Viestirepo vr) {
 		return (args) -> {

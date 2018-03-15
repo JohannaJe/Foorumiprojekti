@@ -26,12 +26,6 @@ body {
     color: black;
 }
 
-/* Nykyinen linkki */
-.topnav a.active {
-    background-color: #3CB371;
-    color: white;
-}
-
 /* tervehdysteksti */
 .tervehdys {
     text-align: center;
