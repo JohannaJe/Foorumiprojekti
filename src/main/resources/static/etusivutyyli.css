@@ -26,14 +26,6 @@ body {
     color: black;
 }
 
-/* tervehdysteksti */
-.tervehdys {
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    font-size: 25px;
-}
-
 /* etsi-kentän muotoilut */
 .etsi {
     width: 20%;
@@ -47,4 +39,4 @@ body {
     width: 100%;
 }
 
-
+h1 {text-shadow: 0.6px 0.6px;}
