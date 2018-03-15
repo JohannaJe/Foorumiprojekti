@@ -9,30 +9,27 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @SpringBootApplication
 public class FoorumiApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(FoorumiApplication.class, args);
     }
-}
 
-//	@Bean
-//	CommandLineRunner sd (GolfRepo golfry, KayttajaRepo kayttajary) {
-//		return (args) -> {
-//			golfry.deleteAll();
-//			kayttajary.deleteAll();
-//		};
-//	}
 
-//	protected void luontiYksittäin(GolfRepo golfry, KayttajaRepo kayttajary) {
-//		Golf o = new Golf("LentäväLammas", "kisa", "maaa maa mammaamaa");
-//		Kayttaja k = new Kayttaja ("Lentävälammas", "lammas", "maaa maa ");
-//		k = kayttajary.save(k);
-//		o.setKayttaja(k);
-//		golfry.save(o);
-//		o = new Golf( "PutoavaPossu", "kisa", "Lallaaa lllaaaa");
-//		o.setKayttaja(k);
-//		golfry.save(o);
-//	}
-//}
+	@Bean //Alustaa tietokannan
+	CommandLineRunner luoOppilaat (Viestirepo vr) {
+		return (args) -> {
+			List<Viesti> lista = new ArrayList<>();
+			Viesti v = new Viesti("Kalajutut", "Turo", "Sain ison hauen");
+			lista.add(v);
+            Viesti v2 = new Viesti("Kalajutut", "Make", "Mun haukeni on taatusti isompi kuin sun haukesi");
+            lista.add(v2);
+
+			vr.saveAll(lista);
+		};
+	}
+	}

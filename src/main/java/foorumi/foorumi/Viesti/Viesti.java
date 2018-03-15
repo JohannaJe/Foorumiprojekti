@@ -19,6 +19,12 @@ public class Viesti {
 
     public String kayttaja;
 
+    public Viesti(String alue, String kayttaja, String teksti) {
+        this.alue = alue;
+        this.kayttaja = kayttaja;
+        this.teksti = teksti;
+    }
+
     public Viesti(){
     }
 
