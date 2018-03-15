@@ -7,12 +7,12 @@ import javax.persistence.*;
 @Entity
 public class Viesti {
 
-    private String teksti;
-    private String kayttaja;
+    public String teksti;
+    public String kayttaja;
     @Id
     @GeneratedValue
     public Integer id;
-    private String alue;
+    public String alue;
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "aihe")
@@ -21,10 +21,10 @@ public class Viesti {
     public Viesti(){
     }
 
-    public Viesti(String teksti, String kayttaja, Aihe aihe) {
+    public Viesti(String teksti, String kayttaja, String alue) {
         this.teksti = teksti;
         this.kayttaja = kayttaja;
-        this.aihe = aihe;
+        this.alue = alue;
     }
 
     public String getTeksti() {

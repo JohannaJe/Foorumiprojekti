@@ -6,11 +6,13 @@ import foorumi.foorumi.Viesti.Viesti;
 import foorumi.foorumi.Viesti.Viestirepo;
 import foorumi.foorumi.Viesti.Viestit;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @Controller
 public class Kontrolleri {
@@ -18,10 +20,12 @@ public class Kontrolleri {
     private Viestirepo vr;
 
     private Aiherepo ar;
+    private JdbcTemplate jdbc;
 
-    public Kontrolleri(@Autowired Viestirepo vr, @Autowired Aiherepo ar) {
+    public Kontrolleri(@Autowired Viestirepo vr, @Autowired Aiherepo ar, @Autowired JdbcTemplate jdbc) {
         this.vr = vr;
         this.ar = ar;
+        this.jdbc = jdbc;
     }
 
     Viesti viesti = new Viesti();
@@ -33,10 +37,20 @@ public class Kontrolleri {
         return "Etusivu";
     }
 
-    @RequestMapping("/autohullut")
-    public String Autohullut(@ModelAttribute Viesti viesti, Model model) {
-        model.addAttribute("viestit", viestit.getViestit());
-        return "Autohullut";
+    @GetMapping("/autohullut")
+    public String listaaKeskusteluAutoista(Model model){
+        String sql = "SELECT teksti, kayttaja, id, alue FROM viesti WHERE alue = 'Autohullut'";
+        List<Viesti> viestit = jdbc.query(sql,
+                (rs, index)->{
+                    Viesti c = new Viesti();
+                    c.setTeksti(rs.getString("teksti"));
+                    c.setKayttaja(rs.getString("kayttaja"));
+                    c.setId(rs.getInt("id"));
+                    c.setAlue(rs.getString("alue"));
+                    return c;
+                });
+        model.addAttribute("viestit", viestit);
+        return "autohullut";
     }
 
     @GetMapping("/viestilomake")
@@ -46,16 +60,24 @@ public class Kontrolleri {
     }
 
     @PostMapping("/autohullut")
-    public String lomakeKasittelija(@ModelAttribute Viesti viesti) {
-
+    public String lomakeKasittelija(@ModelAttribute Viesti viesti, Model model) {
         Viesti uusi = new Viesti();
         uusi.setTeksti(viesti.getTeksti());
         uusi.setKayttaja(viesti.getKayttaja());
-        uusi.setAlue("Autohullut");
-        System.out.println(uusi);
+        uusi.setAlue(viesti.getAlue());
         vr.save(uusi);
-        System.out.println("TOIMIIKO?");
-        return "Autohullut";
+        String sql = "SELECT teksti, kayttaja, id, alue FROM viesti WHERE alue = 'Autohullut'";
+        List<Viesti> viestit = jdbc.query(sql,
+                (rs, index)->{
+                    Viesti c = new Viesti();
+                    c.setTeksti(rs.getString("teksti"));
+                    c.setKayttaja(rs.getString("kayttaja"));
+                    c.setId(rs.getInt("id"));
+                    c.setAlue(rs.getString("alue"));
+                    return c;
+                });
+        model.addAttribute("viestit", viestit);
+        return "autohullut";
     }
 
     @RequestMapping("/kalajutut")
@@ -75,8 +97,6 @@ public class Kontrolleri {
         model.addAttribute("otsikko", "Golfjuorut");
         return "Golfjuorut";
     }
-
-
 
    /* @GetMapping("/muokkaa")
     public String muokkaaViestia(@RequestParam(name = "id") int id, Model model) {

@@ -9,13 +9,19 @@
 
     <h1>Osallistu keskusteluun, vastaa edellisiin viesteihin alla!</h1>
 
-    <form th:action="@{/autohullut}" th:object="${viestiOlio}" method="post">
+    <form th:action="@{/autohullut}" th:object="${viestiOlio}" id="myform" method="post">
         <div><label th:text="'Viestisi'" th:for="teksti"/></div>
         <div><textarea cols="60" rows="6" th:field="*{teksti}"/></div>
-        <!--<p>Kirjoita tähän viestisi: <input type="text" th:field="*{teksti}" /></p>-->
         <p>Nimimerkkisi: <input type="text" th:field="*{kayttaja}" /></p>
-        <p><input type="submit" value="Tallenna viestisi ja siirry keskusteluun." /> <input type="reset" value="Jos kirjoitit väärin, resetoi kenttä tästä!" /></p>
+        <select name="alueet" th:field="*{alue}">
+            <option value="Autohullut" selected>Autohullut</option>
+            <option value="Golfjuorut">Golfjuorut</option>
+            <option value="Kalajutut">Kalajutut</option>
+            <option value="Leffalopinat">Leffalopinat</option>
+        </select>
+        <p><input type="submit" value="Tallenna viestisi ja palaa keskusteluun." /> <input type="reset" value="Jos kirjoitit väärin, resetoi kenttä tästä!" /></p>
     </form>
 </div>
+
 </body>
 </html>

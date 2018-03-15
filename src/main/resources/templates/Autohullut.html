@@ -9,33 +9,32 @@
 
 <div class="topnav" th:include="Etusivu::navibar"></div>
 
+<h1 style="text-align: center;">Auto-aiheista keskustelua!</h1>
+
 <div class="viesti" th:fragment="viesti">
 
-    <h1>Kaikki keskustelut</h1>
-
-    <table>
-        <tr><th>Sijanumero</th><th>Käyttäjä</th><th>Viesti</th></tr>
-        <tr th:each="viesti : ${viestit}">
-            <td th:text="${viestit.indexOf(viesti)}"></td>
-            <td th:text=" ${viesti.kayttaja}"></td>
-            <td th:text="${viesti.teksti}"></td>
+    <table style="width: 80%; margin: 0 auto; border: 3px solid black;">
+        <tr th:each="viesti : ${viestit}" th:object="${viesti}">
+            <td style="padding: 20px; "th:text="*{id}"/>
+            <td style="padding: 20px; "th:text="*{teksti}"/>
+            <td style="padding-left: 20px; padding-top: 20px; padding-bottom: 20px; font-weight: bold" th:text="*{kayttaja}"/>
         </tr>
+        <thead>
+        <tr>
+            <th style="text-align: left; padding: 20px;">ID</th>
+            <th style="text-align: left; padding: 20px;">Kommentti</th>
+            <th style="text-align: left; padding-left: 20px; padding-top: 20px; padding-bottom: 20px;">Käyttäjä</th>
+        </tr>
+        </thead>
     </table>
 
     <p></p>
 
     <a href="/viestilomake">Vastaa tähän keskusteluun</a>
-    <p></p>
-    <!--<a href="/poistelulomake">JOS TÄÄ EI OO NIIN SIISTIÄ, NIIN ALETAAN POISTELEMAAN!</a>-->
-    <!--<p></p>-->
-    <!--<a href="/muuntelulomake">JOS TÄÄ EI OO NIIN SIISTIÄ, NIIN ALETAAN MUOKKAAMAAN!</a>-->
-</div>
 
-<table>
-    <tr th:each="Aihe: ${aihe}">
-        <td id="aihe" th:text="${aihe.otsikko}"></td>
-    </tr>
-</table>
+    <p></p>
+
+</div>
 
 </body>
 </html>
